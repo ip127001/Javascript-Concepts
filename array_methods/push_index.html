@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="task">
+
+    <button type="button" id="button">Add task</button>
+
+    <ul id="list">
+
+    </ul>
+
+    <script>
+        var input = document.querySelector('#task');
+        var button = document.querySelector('#button');
+        var list = document.querySelector('#list');
+
+        const pets = [];
+
+        button.addEventListener('click', function (event) {
+            pets.push(input.value);
+            input.value = "";
+            render();
+        });
+
+        function render() {
+            list.innerHTML = pets.map(x => ` <li>${x}</li>`).join('');
+        }
+    </script>
+</body>
+
+</html>
