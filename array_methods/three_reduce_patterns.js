@@ -64,3 +64,20 @@ var star = arr.reduce((acc, value) => {
     return acc + value;
 }, 0);
 console.log(star);
+
+//# pipeline
+var increment = x => x + 1;
+var decrement = x => x - 1;
+var halve = x => x / 2;
+
+var fnArray = [
+    increment,
+    decrement,
+    halve
+]
+
+var stars = fnArray.reduce((acc, fn) => {
+    return fn(acc)
+}, 6);
+
+console.log(stars);
