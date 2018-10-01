@@ -5,5 +5,3 @@ function Person(firstName) {
 var person = Person('john');
 
 console.log(Person);
-
-//---------------------------

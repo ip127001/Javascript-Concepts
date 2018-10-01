@@ -11,16 +11,16 @@ console.log(person);
 //----------------------
 
 
-function Person(firstName) {
+function Person1(firstName) {
     this.firstName = firstName;
     return {
         firstName: "jane"
     }
 }
 
-var person = new Person('john');
+var person1 = new Person1('john');
 
-console.log(person);
+console.log(person1);
 
 
 // ---------------------
