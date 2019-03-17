@@ -29,8 +29,9 @@ class NewPost extends Component {
 
         axios.post('/posts/', data)
         .then(response => {
-            this.setState({submitted: true});
-            // console.log(response);
+            console.log(response);
+            this.props.history.replace('/posts');  //replace does as redirect but push pushes to the stack
+            // this.setState({submitted: true});
         })
     }
 
