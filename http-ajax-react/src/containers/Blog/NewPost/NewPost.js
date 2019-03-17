@@ -12,6 +12,10 @@ class NewPost extends Component {
 
     componentDidMount() {
         console.log(this.props);
+        const query = new URLSearchParams(this.props.location.search)
+        for (let param of query.entries()) {
+            console.log(param);
+        }
     }
     
     postDataHandler = () => {
