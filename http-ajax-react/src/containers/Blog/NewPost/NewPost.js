@@ -26,7 +26,7 @@ class NewPost extends Component {
             content: this.state.content,
             author: this.state.author
         }
-
+        
         axios.post('/posts/', data)
         .then(response => {
             console.log(response);
