@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import axios from '../../../axios';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import { Route } from 'react-router';
 
 import Post from '../../../components/Post/Post';
 import './Posts.css';
+import FullPost from '../FullPost/FullPost';
 
 class Posts extends Component {
     state = {
@@ -31,29 +33,34 @@ class Posts extends Component {
     }
 
     selectedPost = (id) => {
-        this.setState({selectedId: id})
+        // this.setState({selectedId: id})
+        this.props.history.push('/posts/' + id);
     }
 
     render() {
-        console.log('[blog.js] render')
+        console.log('[Posts.js] render')
         let posts = <p style={{textAlign: 'center'}}>Error occured!!</p>;
         if(!this.state.error) {
             posts = this.state.posts.map((post) => {
                 return (
-                <Link to={'/' + post.id} key={post.id}>
+                // <Link to={'/posts/' + post.id} key={post.id}>
                     <Post 
+                        key={post.id}
                         author={post.author} 
                         title={post.title} 
                         clicked={() => {this.selectedPost(post.id)}} />
-                </Link>
+                // </Link>
                 );    
             });
         } 
 
         return (
-            <section className="Posts">
-                {posts}
-            </section>
+            <div>
+                <section className="Posts">
+                    {posts}
+                </section>
+                <Route path={this.props.match.url + '/:id'} exact component={FullPost} />
+            </div>
         );
     }
 }
